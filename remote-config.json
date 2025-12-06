@@ -1,0 +1,49 @@
+{
+  "version": "1.1.0",
+  "updated": "2024-12-06",
+  "selectors": {
+    "search": {
+      "container": ["#tiles", "[data-et-name=\"listing_tiles\"]", ".tiles_container", ".tc--g"],
+      "card": ["[data-et-name=\"listing_tile\"]", ".card", ".tile"],
+      "listingLink": "a[href*=\"/listing/\"]",
+      "price": ["[data-et-name=\"listing_price\"]", ".p--t--1.fw--bold", "span[class*=\"price\"]", ".fw--bold"],
+      "soldIndicator": [".sold-tag", "[data-et-name=\"sold_banner\"]", ".inventory-tag--sold"],
+      "likes": ["[data-et-name=\"likes_count\"]", ".like-count"]
+    },
+    "product": {
+      "title": [".listing__title", "[data-et-name=\"listing_title\"]", "h1.listing__title-container", "h1"],
+      "price": [".listing__ipad-centered h1", ".listing__price", "[data-et-name=\"listing_price\"]", ".p--t--1.fw--bold"],
+      "sellerSection": [".listing__seller-info", "[data-et-name=\"seller_info\"]", ".seller-info", ".listing__seller", ".listing__user-info"],
+      "originalPrice": ["span.tc--lg.td--lt.m--l--2", "span.td--lt.tc--lg", ".original-price", "[data-test=\"original-price\"]"],
+      "currentPrice": [".listing__price span:not([class])", ".listing__price .fw--bold", "[data-test=\"current-price\"]"]
+    },
+    "closet": {
+      "stats": [".closet-stats", ".user-stats", "[data-et-name=\"closet_stats\"]"],
+      "listings": ["[data-et-name=\"listings_count\"]", ".listing-count"],
+      "followers": ["[data-et-name=\"followers_count\"]", ".follower-count"]
+    }
+  },
+  "patterns": {
+    "listingId": "listing\\/[^\\/]+-([a-f0-9]{24})(?:\\?|$)",
+    "price": "\\$?([\\d,]+(?:\\.\\d{2})?)",
+    "soldCount": "(\\d[\\d,]*)\\s*Sold",
+    "followers": "(\\d[\\d,]*)\\s*Followers",
+    "listings": "(\\d[\\d,]*)\\s*Listings"
+  },
+  "thresholds": {
+    "demand": { "hot": 70, "warm": 45, "cool": 25 },
+    "price": { "below": -15, "above": 15 },
+    "stale": { "fresh": 7, "recent": 30, "aging": 60, "stale": 90 }
+  },
+  "ui": {
+    "debounceMs": 300,
+    "observerThrottleMs": 100,
+    "barHeight": 48
+  },
+  "messages": {
+    "upgradeTitle": "Unlock PoshSight Pro",
+    "upgradeBody": "Get unlimited access to all features",
+    "limitReached": "Daily limit reached. Upgrade to Pro for unlimited access!"
+  }
+}
+
